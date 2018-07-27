@@ -1,0 +1,25 @@
+---
+title: "Maps"
+author: "Thiago Almeida"
+date: "27 de julho de 2018"
+output: ioslides_presentation
+---
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set()
+library(leaflet)
+```
+
+## Maps
+
+27-07-2018
+
+```{r map, echo = FALSE}
+df <- data.frame(lat = runif(500, min = -23, max = -22),
+                 lng = runif(500, min = -47, max = -46))
+
+df %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(clusterOptions = markerClusterOptions())
+```
